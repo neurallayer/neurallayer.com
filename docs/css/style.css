@@ -1180,14 +1180,14 @@ p.artficial:before{
 
 /* ##### Partners Area ##### */
 .partners{
-    padding: 0 0 70px
+    padding: 0 0 50px
 }
 .partner-box{
     border-radius: 10px;
     padding: 20px 10px;
     text-align: center;
     vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
     margin-bottom: 30px;
     transition: all .3s ease-in-out;
     height: 150px;
