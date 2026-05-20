@@ -287,19 +287,6 @@ h1 {
     color: var(--ink);
 }
 
-.score-table th:first-child,
-.score-table td:first-child {
-    width: 70%;
-}
-
-.score-table th:last-child,
-.score-table td:last-child {
-    width: 30%;
-}
-
-.score-table td:last-child {
-    text-align: right;
-}
 
 .score-table td:last-child {
     font-feature-settings: "tnum" 1;
@@ -307,7 +294,7 @@ h1 {
 
 .score-table td,
 .score-table th {
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 .score-table {
