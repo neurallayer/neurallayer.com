@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>European Cloud Sovereignty | NeuralLayer</title>
+    <title>European Cloud Sovereignty | Neural Layer</title>
     <link href="/style.css" rel="stylesheet" />
     <style>
         .hero {
@@ -12,6 +12,13 @@
                 linear-gradient(90deg, rgba(7, 30, 35, 0.92) 0%, rgba(7, 30, 35, 0.75) 45%, rgba(7, 30, 35, 0.28) 100%),
                 url("eu.png") center / cover no-repeat;
         }
+        .architecture-visual {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5)),
+        url("scoring.png") center 58% / min(84%, 520px) no-repeat,
+        linear-gradient(135deg, #ffffff, #d8eee8);
+    box-shadow: var(--shadow);
+}
     </style>
 </head>
 
@@ -38,46 +45,56 @@
                     <p class="eyebrow">Cloud, data and AI architecture</p>
                     <h1 id="hero-title">European Cloud Sovereignty</h1>
                     <p class="hero-lede">
-                        Secure, compliant cloud infrastructure designed for European organizations, protecting data
-                        residency, privacy, and regulatory alignment across the EU.
+                        Secure, compliant cloud infrastructure designed for European organizations.
                     </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <section class="intro-band" aria-label="Company introduction">
+    <section class="intro-band" aria-label="Importance of sovereignty">
         <div class="section-inner intro-grid">
-            <div class="intro-copy">
-                <h2>Why sovereignty matters</h2>
-                <p>
-                    European cloud sovereignty ensures that data and services remain under the control of European
-                    entities,
-                    hosted within the EU, subject to European law, and protected from foreign access. This is essential
-                    for trust, compliance, and digital autonomy.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="intro-band" aria-label="Company introduction">
-        <div class="section-inner intro-grid">
-            <h2>Approach</h2>
-            <p>The EU created a framework for digital sovereignty to ensure that European data and services
-                remain under the control of European entities, hosted within the EU, subject to European law,
-                and protected from foreign access. It can be found
-                here: <a
-                    href="https://commission.europa.eu/document/download/09579818-64a6-4dd5-9577-446ab6219113_en?filename=Cloud-Sovereignty-Framework.pdf">Cloud
-                    Sovereignty Framework</a>.
-                <br/><br/>
-                NeuralLayer evaluates cloud providers based on their alignment with the European cloud sovereignty
-                objectives.
+            <h2>Why sovereignty matters</h2>
+            <p>
+                European cloud sovereignty ensures that data and services remain under the control of European
+                entities, hosted within the EU, subject to European law, and protected from foreign access. 
+            <br /><br />
+                This is essential for trust, compliance, and digital autonomy.
+                And this also might prove to be essential for a sustainable business model for European organizations.
             </p>
         </div>
     </section>
 
+       <section class="section approach" id="approach">
+        <div class="section-inner approach-grid">
+          <div class="architecture-visual">
+            <h3>Assessment</h3>
+            <p>
+                Neural Layer evaluates cloud providers based on their alignment with the European cloud sovereignty
+                objectives.
+            </p>
+          </div>
+
+          <div>
+            <p class="section-kicker">Approach</p>
+            <h2>SMART metrics</h2>
+              <p>The EU created a framework for digital sovereignty to ensure that European data and services
+                remain under the control of European entities, hosted within the EU, subject to European law,
+                and protected from foreign access. An overview can be found
+                at <a
+                    href="https://commission.europa.eu/document/download/09579818-64a6-4dd5-9577-446ab6219113_en?filename=Cloud-Sovereignty-Framework.pdf">Cloud
+                    Sovereignty Framework</a>.
+                <br /><br />
+                Neural Layer scores the providers based on their alignment with these European cloud sovereignty
+                objectives and your use cases. After each objective has been evaluated, a weighting is applied to calculate an overall score for each provider, 
+                which can be used to compare and select the most suitable cloud solution for your needs.
+          </div>
+        </div>
+      </section>
+
+ 
     <section class="intro-band" aria-label="Company introduction">
-        <div class="section-inner intro-grid">
+        <div class="section-inner">
             <h2>Objectives</h2>
             <p>European cloud sovereignty defines a set of objectives that cloud providers must meet to be considered
                 sovereign. Providers that meet these objectives can offer solutions that align with the needs of
@@ -85,14 +102,12 @@
             <table class="score-table">
                 <thead>
                     <tr>
-                        <th>Code</th>
                         <th>Objective</th>
                         <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>SOV-1</td>
                         <td>Strategic Sovereignty</td>
                         <td>Strategic sovereignty captures the degree to which the services of a cloud provider (or
                             technology actor) are anchored within the European Union legal, financial, and industrial
@@ -100,7 +115,6 @@
                             strategic priorities.</td>
                     </tr>
                     <tr>
-                        <td>SOV-2</td>
                         <td>Legal & Jurisdictional Sovereignty</td>
                         <td>Legal & Jurisdictional sovereignty evaluates the legal environment, exposure to foreign
                             authority, and enforceability of rights that govern the services of a technology provider.
@@ -108,42 +122,36 @@
                             insulated from external legal claims.</td>
                     </tr>
                     <tr>
-                        <td>SOV-3</td>
                         <td>Data & AI Sovereignty</td>
                         <td>Data & AI sovereignty focuses on the protection, control, and independence of data assets
                             and AI services within the EU. It addresses how data is secured, where it is processed, and
                             the degree of autonomy customers retain over AI capabilities.</td>
                     </tr>
                     <tr>
-                        <td>SOV-4</td>
                         <td>Operational Sovereignty</td>
                         <td>Operational sovereignty measures the practical ability of EU actors to run, support, and
                             evolve a technology independently of foreign control. It focuses on continuity of
                             operations, skill availability, and resilience against external dependencies.</td>
                     </tr>
                     <tr>
-                        <td>SOV-5</td>
                         <td>Supply Chain Sovereignty</td>
                         <td>Supply chain sovereignty evaluates the geographic origin, transparency, and resilience of
                             the technology supply chain, focusing on the extent to which critical components and
                             processes remain under EU control or exposed to non-EU dependencies.</td>
                     </tr>
                     <tr>
-                        <td>SOV-6</td>
                         <td>Technology Sovereignty</td>
                         <td>Technology sovereignty evaluates the degree of openness, transparency, and independence in
                             the underlying technological stack, ensuring EU actors can interoperate, audit, and evolve
                             solutions without lock-in to foreign proprietary systems.</td>
                     </tr>
                     <tr>
-                        <td>SOV-7</td>
                         <td>Security & Compliance Sovereignty</td>
                         <td>Security & Compliance sovereignty measures the extent to which security operations,
                             compliance obligations, and resilience measures are controlled within the EU, ensuring
                             independence from foreign jurisdictions and long-term operational assurance.</td>
                     </tr>
                     <tr>
-                        <td>SOV-8</td>
                         <td>Environmental Sustainability</td>
                         <td>Environmental sustainability assesses autonomy and resilience of cloud services over the
                             long term in relation to energy usage, dependency and resource management within EU systems.
@@ -151,20 +159,23 @@
                     </tr>
                 </tbody>
             </table>
+            <br />
         </div>
     </section>
 
     <section class="intro-band" aria-label="Company introduction">
         <div class="section-inner intro-grid">
+            <h2>Scoring</h2>
             <p>
                 The table provides indicative scores for various cloud providers based on their alignment with the
                 European cloud sovereignty objectives.
 
                 These scores are meant to give a general sense of how well each provider meets the criteria, but actual
-                suitability may vary based on specific use cases and requirements. 
-                <br/><br/>
-                For an evaluation of cloud providers
-                specific to your use cases, please contact us at <a href="mailto:info@neurallayer.com">info@neurallayer.com</a>.    
+                suitability may vary based on specific use cases and requirements.
+            </p>
+            <p>
+                For an evaluation specific to your use cases, please contact us at <a
+                    href="mailto:info@neurallayer.com">info@neurallayer.com</a>.
             </p>
             <table class="score-table">
                 <thead>
@@ -202,40 +213,63 @@
         </div>
     </section>
 
-    <section class="intro-band" aria-label="Company introduction">
-        <div class="section-inner intro-grid">
 
-            <section class="section">
-                <h2>Challenges</h2>
-                <div class="grid">
-                    <article class="card">
-                        <h3>Supply Chain Sovereignty</h3>
-                        <p>EU operated cloud providers often rely on hardware, software, and services from non-EU
-                            suppliers,
-                            creating potential vulnerabilities and dependencies that can undermine sovereignty goals.
-                            This is not unique to EU providers, but it is a significant challenge for achieving full
-                            sovereignty in the cloud.
-                        </p>
-                    </article>
-                    <article class="card">
-                        <h3>Strategic Sovereignty</h3>
-                        <p>Providers like AWS and Azure have significant investments in the EU and are committed to
-                            expanding their presence, but they
-                            are still foreign companies subject to US jurisdiction and influence. This creates a tension
-                            between their strategic investments in the EU and the legal and operational realities of
-                            being
-                            non-EU entities, which can limit their ability to fully meet the strategic sovereignty
-                            objective.
-                        </p>
-                    </article>
+    <section class="section" id="services">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">Challenges</p>
+                    <h2>Challenges in Achieving Cloud Sovereignty</h2>
                 </div>
-            </section>
+                <p>
+                    Achieving full cloud sovereignty in the EU is complex and involves navigating a range of challenges
+                    across the supply chain, strategic investments, and operational capabilities. Providers must
+                    address these challenges to meet the sovereignty objectives and provide solutions that align with
+                    the needs of European organizations.
+                </p>
+            </div>
+
+            <div class="service-grid">
+                <article class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Supply Chain Sovereignty</h3>
+                    <p>EU operated cloud providers often rely on hardware, software, and services from non-EU
+                        suppliers,
+                        creating potential vulnerabilities and dependencies that can undermine sovereignty goals.
+                        This is not unique to EU providers, but it is a significant challenge for achieving full
+                        sovereignty in the cloud.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Strategic Sovereignty</h3>
+                    <p>Providers like AWS and Azure have significant investments in the EU and are committed to
+                        expanding their presence, but they
+                        are still foreign companies subject to US jurisdiction and influence. This creates a tension
+                        between their strategic investments in the EU and the legal and operational realities of
+                        being
+                        non-EU entities, which can limit their ability to fully meet the strategic sovereignty
+                        objective.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>Operational Sovereignty</h3>
+                    <p>Getting skilled staff, ensuring continuity of operations, and maintaining resilience against
+                        external
+                        dependencies are critical for operational sovereignty. EU providers may face challenges in
+                        building the necessary ecosystem to support these needs independently of foreign control.
+                    </p>
+                </article>
+            </div>
         </div>
     </section>
 
 
     <footer class="footer">
-        <p>European cloud sovereignty with NeuralLayer: secure, compliant, and focused on the needs of modern European
+        <p>European cloud sovereignty with Neural Layer: secure, compliant, and focused on the needs of modern European
             organizations.</p>
     </footer>
 
