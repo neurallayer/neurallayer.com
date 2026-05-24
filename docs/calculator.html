@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>EU Cloud Sovereignty Score</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Cloud Sovereignty | Neural Layer</title>
+  <link href="/style.css" rel="stylesheet" />
+
+  <style>
+    section { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 10px; }
+    .question { margin: 14px 0; }
+    label { margin-right: 16px; }
+    .score { font-size: 1.5rem; font-weight: bold; margin-top: 24px; }
+    .result { background: #f6f8fa; padding: 14px; border-radius: 8px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="/#top" aria-label="Neural Layer home">
+                <span class="brand-mark">NL</span>
+                <span>Neural Layer</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#services">Services</a>
+                <a href="/#approach">Approach</a>
+                <a href="/#trust">Trust</a>
+                <a href="/#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <p class="eyebrow">Cloud, data and AI architecture</p>
+                    <h1 id="hero-title">Score Calculator</h1>
+                    <p class="hero-lede">
+                        Indicative score for European cloud sovereignty.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <section class="intro-band" aria-label="Importance of sovereignty">
+        <div class="section-inner">
+<p>Answer each question to calculate the weighted sovereignty score.
+  <ul>
+    <li>Each question is scored from 0 to 3</li>
+    <li>Scores are normalized per objective and weighted according to importance.</li>
+    <li>The overall score is a percentage indicating the level of European sovereignty.</li>
+    <li>If you leave any question unanswered, it will be excluded from the score calculation.</li>
+    <li>If you select "Don't know" for a question, it will also be excluded from the score calculation.</li>
+    <li>You have to answer at least one question per objective to get a score.</li>
+    </ul> 
+  </p>
+
+<form id="assessment"></form>
+
+<a class="button button-primary" onclick="calculateScore()">Calculate Score</a>
+
+<div id="output"></div>
+          </div>
+    </section>
+<script>
+const answerOptions = {
+  "No": 0,
+  "Partially": 1,
+  "Mostly": 2,
+  "Fully": 3,
+  "Don't know": 4
+};
+
+const weights = {
+  "SOV-1 Strategic Sovereignty": 0.15,
+  "SOV-2 Legal & Jurisdictional Sovereignty": 0.10,
+  "SOV-3 Data & AI Sovereignty": 0.10,
+  "SOV-4 Operational Sovereignty": 0.15,
+  "SOV-5 Supply Chain Sovereignty": 0.20,
+  "SOV-6 Technology Sovereignty": 0.15,
+  "SOV-7 Security & Compliance Sovereignty": 0.10,
+  "SOV-8 Environmental Sustainability": 0.05
+};
+
+const questions = {
+  "SOV-1 Strategic Sovereignty": [
+    "Are decision-making bodies located within the EU?",
+    "Are there protections against foreign acquisition or change of control?",
+    "Does the provider rely primarily on EU financing sources?",
+    "Does the provider create jobs and economic value within the EU?",
+    "Is the provider involved in EU digital or sovereignty initiatives?",
+    "Can operations continue independently if non-EU vendor support stops?"
+  ],
+  "SOV-2 Legal & Jurisdictional Sovereignty": [
+    "Are contracts governed exclusively by EU law?",
+    "Is the provider protected against non-EU extraterritorial laws?",
+    "Are there no technical or legal channels for non-EU authorities to access systems or data?",
+    "Are intellectual property rights registered and developed within the EU?",
+    "Are data transfers outside the EU contractually restricted?"
+  ],
+  "SOV-3 Data & AI Sovereignty": [
+    "Does the customer exclusively control encryption keys?",
+    "Is all data access fully auditable?",
+    "Can data be irreversibly deleted with verifiable evidence?",
+    "Is all storage and processing restricted to EU jurisdictions?",
+    "Are AI models developed and governed within the EU?"
+  ],
+  "SOV-4 Operational Sovereignty": [
+    "Can workloads easily migrate to alternative EU providers?",
+    "Can EU operators manage the platform without non-EU vendor involvement?",
+    "Is operational support delivered exclusively from the EU?",
+    "Is complete technical documentation available?",
+    "Are critical subcontractors under EU legal control?",
+    "Is there a sufficient EU-based talent pool available?"
+  ],
+  "SOV-5 Supply Chain Sovereignty": [
+    "Are key hardware components manufactured or assembled in the EU?",
+    "Is firmware and embedded code developed under EU jurisdiction?",
+    "Is software primarily developed within the EU?",
+    "Is dependence on non-EU suppliers limited?",
+    "Is the supplier chain fully transparent and auditable?"
+  ],
+  "SOV-6 Technology Sovereignty": [
+    "Does the platform use open standards and non-proprietary APIs?",
+    "Is software available under open or auditable licenses?",
+    "Is architectural documentation fully available?",
+    "Can the solution interoperate with other EU technologies?",
+    "Is there limited dependency on non-EU HPC ecosystems?"
+  ],
+  "SOV-7 Security & Compliance Sovereignty": [
+    "Does the provider hold EU-recognized security certifications?",
+    "Is the platform compliant with GDPR, NIS2, and DORA?",
+    "Are SOC and monitoring operations located in the EU?",
+    "Can EU entities independently audit the environment?",
+    "Can security patches be applied independently of non-EU vendors?"
+  ],
+  "SOV-8 Environmental Sustainability": [
+    "Does the provider use energy-efficient infrastructure?",
+    "Are circular economy practices implemented?",
+    "Are sustainability metrics transparently reported?",
+    "Is renewable or low-carbon energy used?"
+  ]
+};
+
+const form = document.getElementById("assessment");
+
+Object.entries(questions).forEach(([objective, qs]) => {
+  const section = document.createElement("section");
+  section.className = "approach";
+  section.innerHTML = `<h3>${objective} (${weights[objective] * 100}%)</h3>`;
+
+  qs.forEach((question, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const name = `${objective}-${i}`;
+
+    div.innerHTML = `
+      <p><strong>${question}</strong></p>
+      ${Object.keys(answerOptions).map(option => `
+        <label>
+          <input type="radio" name="${name}" value="${answerOptions[option]}" required>
+          ${option}
+        </label>
+      `).join("")}
+    `;
+
+    section.appendChild(div);
+  });
+
+  form.appendChild(section);
+});
+
+function sealLevel(normalized) {
+  if (normalized >= 0.85) return "SEAL-4 Full Digital Sovereignty";
+  if (normalized >= 0.65) return "SEAL-3 Digital Resilience";
+  if (normalized >= 0.45) return "SEAL-2 Data Sovereignty";
+  if (normalized >= 0.20) return "SEAL-1 Jurisdictional Sovereignty";
+  return "SEAL-0 No Sovereignty";
+}
+
+function calculateScore() {
+  let overallScore = 0;
+  let html = "";
+
+  for (const [objective, qs] of Object.entries(questions)) {
+    let rawScore = 0;
+    let maxScore = 0;
+
+    for (let i = 0; i < qs.length; i++) {
+      const selected = document.querySelector(`input[name="${objective}-${i}"]:checked`);
+
+    
+      if (selected && (selected.value !== "4")) {
+        maxScore += 3; // Max score per question
+        rawScore += Number(selected.value);
+      }
+    }
+
+    if (maxScore === 0) {
+      alert("Please answer at least one question per objective before calculating.");
+      return;
+    }
+
+
+    const normalized = rawScore / maxScore;
+    const weightedContribution = normalized * weights[objective] * 100;
+    overallScore += weightedContribution;
+
+    html += `
+      <div class="result">
+        <h3>${objective}</h3>
+        <p>Raw score: ${rawScore} / ${maxScore}</p>
+        <p>Weighted contribution: ${weightedContribution.toFixed(2)}%</p>
+        <p>Assessment level: ${sealLevel(normalized)}</p>
+      </div>
+    `;
+  }
+
+  let rating = "Very Weak European Sovereignty";
+  if (overallScore >= 85) rating = "Excellent European Sovereignty";
+  else if (overallScore >= 70) rating = "Strong European Sovereignty";
+  else if (overallScore >= 50) rating = "Moderate European Sovereignty";
+  else if (overallScore >= 30) rating = "Weak European Sovereignty";
+
+  document.getElementById("output").innerHTML = `
+    <div class="score">Overall Sovereignty Score: ${overallScore.toFixed(2)}%</div>
+    <h2>${rating}</h2>
+    ${html}
+  `;
+}
+</script>
+
+</body>
+</html>
